@@ -16,4 +16,9 @@ export const env = createEnv({
     LEADS_FROM_EMAIL: process.env.LEADS_FROM_EMAIL,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
+  // Important for Vercel build-time: allow missing values during build output generation.
+  // Runtime will still require these when the API route is invoked.
+  skipValidation:
+    process.env.VERCEL === "1" &&
+    (process.env.VERCEL_ENV === "production" || process.env.VERCEL_ENV === "preview"),
 });

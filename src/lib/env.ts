@@ -8,7 +8,7 @@ export const env = createEnv({
     LEADS_FROM_EMAIL: z.string().min(1),
   },
   client: {
-    NEXT_PUBLIC_APP_URL: z.string().url(),
+    NEXT_PUBLIC_APP_URL: z.string().url().optional(),
   },
   runtimeEnv: {
     RESEND_API_KEY: process.env.RESEND_API_KEY,
